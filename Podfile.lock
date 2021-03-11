@@ -1,0 +1,20 @@
+PODS:
+  - Fakery (5.1.0)
+  - TinyConstraints (4.0.1)
+
+DEPENDENCIES:
+  - Fakery
+  - TinyConstraints
+
+SPEC REPOS:
+  trunk:
+    - Fakery
+    - TinyConstraints
+
+SPEC CHECKSUMS:
+  Fakery: a90caff00ca5cacde6c161c3eafc72314a03d34d
+  TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
+
+PODFILE CHECKSUM: 64a74d364349532ed4608f50580d6284951e544e
+
+COCOAPODS: 1.10.1
