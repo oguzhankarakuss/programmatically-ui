@@ -9,60 +9,10 @@ import UIKit
 
 final class ProductCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - UI
     private lazy var containerStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        return stackView
-    }()
-
-    // MARK: - User Views
-    private lazy var profileImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 20.0
-        return imageView
-    }()
-
-    private lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 13.0, weight: .bold)
-        label.textColor = .black
-        return label
-    }()
-    
-    private lazy var followersLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 13.0, weight: .semibold)
-        label.textColor = .gray
-        return label
-    }()
-
-    private lazy var recipeLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 13.0, weight: .semibold)
-        label.textColor = .gray
-        return label
-    }()
-    
-    private lazy var profileLabelStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        return stackView
-    }()
-    
-    private lazy var followersStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 2.0
-        stackView.alignment = .leading
-        return stackView
-    }()
-    
-    private lazy var imageWithLabelsStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.spacing = 10.0
         return stackView
     }()
     
@@ -72,48 +22,13 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    private lazy var userContainerView: UIView = {
-        return UIView()
+    private lazy var userView: UserView = {
+        return UserView()
     }()
-
-    private final func configureUserView() {
-        followersStackView.addArrangedSubview(recipeLabel)
-        followersStackView.addArrangedSubview(followersLabel)
-        
-        profileLabelStackView.addArrangedSubview(nameLabel)
-        profileLabelStackView.addArrangedSubview(followersStackView)
-        
-        imageWithLabelsStackView.addArrangedSubview(profileImageView)
-        imageWithLabelsStackView.addArrangedSubview(profileLabelStackView)
-        
-        userContainerView.addSubview(imageWithLabelsStackView)
-        
-        containerStackView.addArrangedSubview(userContainerView)
-        containerStackView.addArrangedSubview(separatorView)
-        
-        contentView.addSubview(containerStackView)
-        
-        imageWithLabelsStackView.edgesToSuperview(insets: UIEdgeInsets(top: 15.0,
-                                                                       left: 15.0,
-                                                                       bottom: 15.0,
-                                                                       right: 15.0))
-        profileImageView.size(CGSize(width: 40.0, height: 40.0))
-        
-        separatorView.height(1.0)
-        
-        recipeLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        
-        containerStackView.edgesToSuperview()
-        
-        profileImageView.backgroundColor = .blue
-        recipeLabel.text = "4 Tarif"
-        followersLabel.text = "3 Takipçi"
-        nameLabel.text = "Alican"
-        
-    }
     
-    final func commonInit() {
-        configureUserView()
+    // MARK: - Init
+    private final func commonInit() {
+        configureContainerView()
     }
     
     override init(frame: CGRect) {
@@ -127,4 +42,24 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+// MARK: - Configures
+private extension ProductCollectionViewCell {
+    final func configureContainerView() {
+        
+        containerStackView.addArrangedSubview(userView)
+        containerStackView.addArrangedSubview(separatorView)
+        
+        contentView.addSubview(containerStackView)
+        
+        separatorView.height(1.0)
+        
+        containerStackView.edgesToSuperview()
+        
+        userView.recipeText = "4 Tarif"
+        userView.followersText = "3 Takipçi"
+        userView.nameText = "Alican"
+        
+    }
 }
