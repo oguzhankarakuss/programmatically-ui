@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class UserView: UIView {
     
@@ -14,6 +15,7 @@ final class UserView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = 20.0
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -99,6 +101,16 @@ final class UserView: UIView {
     }
     
     // MARK: - Properties
+    var imageUrl: String? {
+        willSet {
+            if let imageUrl = newValue, let url = URL(string: imageUrl) {
+                profileImageView.kf.setImage(with: url)
+            } else {
+                profileImageView.image = nil
+            }
+        }
+    }
+    
     var nameText: String? {
         get {
             return nameLabel.text

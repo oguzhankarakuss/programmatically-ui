@@ -9,6 +9,8 @@ target 'programmatically-ui' do
   
   pod 'Fakery'
   pod 'TinyConstraints'
+  pod 'MobilliumBuilders'
+  pod 'Kingfisher', '~> 6.2'
 
   target 'programmatically-uiTests' do
     inherit! :search_paths

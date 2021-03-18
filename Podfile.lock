@@ -1,20 +1,28 @@
 PODS:
   - Fakery (5.1.0)
+  - Kingfisher (6.2.1)
+  - MobilliumBuilders (1.0.0)
   - TinyConstraints (4.0.1)
 
 DEPENDENCIES:
   - Fakery
+  - Kingfisher (~> 6.2)
+  - MobilliumBuilders
   - TinyConstraints
 
 SPEC REPOS:
   trunk:
     - Fakery
+    - Kingfisher
+    - MobilliumBuilders
     - TinyConstraints
 
 SPEC CHECKSUMS:
   Fakery: a90caff00ca5cacde6c161c3eafc72314a03d34d
+  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
+  MobilliumBuilders: e83c3b97b8ab113610369408e53a185b8b8e85c6
   TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: 64a74d364349532ed4608f50580d6284951e544e
+PODFILE CHECKSUM: 7931955f59441983485f0fae8b67b676882f5e00
 
 COCOAPODS: 1.10.1
